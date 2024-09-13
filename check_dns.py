@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 
 # Copyright 2017 Pieter Lexis <pieter.lexis@powerdns.com>
 # Licensed under the GPL version 2, see LICENSE for more.
@@ -127,9 +127,9 @@ class DNS(nagiosplugin.Resource):
         rrsig_warnings = set()
         rrsig_expiration = None
         now = int(time.time())
-        for _, rrsigs in analysis_obj.rrsig_status.iteritems():
-            for rrsig, rrsets in rrsigs.iteritems():
-                for keymeta, single_rrsig_status in rrsets.iteritems():
+        for _, rrsigs in analysis_obj.rrsig_status.items():
+            for rrsig, rrsets in rrsigs.items():
+                for keymeta, single_rrsig_status in rrsets.items():
                     if keymeta.name != self.domain_native:
                         continue
                     for w in single_rrsig_status.warnings:
